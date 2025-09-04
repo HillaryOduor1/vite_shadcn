@@ -231,7 +231,7 @@ import {
 } from "@/components/ui/navigation-menu"
 
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { ThemeToggle } from "./themeToggle"
 
 // Shared navigation data
@@ -311,6 +311,9 @@ export function Navbar() {
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="w-[260px] sm:w-[320px]">
+               <SheetHeader>
+                    <SheetTitle>Menu</SheetTitle>
+                </SheetHeader>
               <nav className="flex flex-col gap-4 mt-6">
                 {navItems.map((item) =>
                   item.items ? (
