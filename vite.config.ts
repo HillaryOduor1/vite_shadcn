@@ -41,7 +41,8 @@ export default defineConfig({
     outDir: "dist",
     emptyOutDir: true
   },
-  base: "/"   // VERY important for Vercel, keeps paths correct
+  // eslint-disable-next-line no-constant-binary-expression
+  base: process.env.VITE_BASE_PATH || "./" || "/vite_shadcn"  // VERY important for Vercel, keeps paths correct
 
 })
 
