@@ -40,7 +40,7 @@ export default defineConfig({
   build: {
     outDir: "dist"
   },
-  base: process.env.VITE_BASE_PATH || "/" || "/vite_shadcn"  // VERY important for Vercel, keeps paths correct
+  base: process.env.VITE_BASE_PATH || "./" || "/vite_shadcn"  // VERY important for Vercel, keeps paths correct
 
 })
 
