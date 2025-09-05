@@ -38,7 +38,8 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: "dist"
+    outDir: "dist",
+    emptyOutDir: true
   },
   base: "/"   // VERY important for Vercel, keeps paths correct
 
