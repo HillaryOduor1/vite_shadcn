@@ -66,6 +66,6 @@ export default defineConfig({
       "@": path.resolve(__dirname, "src"),
     },
   },
-  base: "/modern/",
+  base: "/assets/modern/",
 })
 

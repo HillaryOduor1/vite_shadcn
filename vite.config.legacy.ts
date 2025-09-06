@@ -151,6 +151,6 @@ export default defineConfig({
       "@": path.resolve(__dirname, "src"),
     },
   },
-  base: "/legacy/",
+  base: "/assets/legacy/",
 });
 

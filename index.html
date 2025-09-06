@@ -5,32 +5,27 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite Shadcn React Test</title>
+    <script>
+      (function () {
+        try {
+          // ✅ Modern feature checks
+          new Function("()=>{}"); // arrow functions
+          if (!("noModule" in HTMLScriptElement.prototype)) throw new Error();
+
+          // Browser passes → continue loading modern bundle
+        } catch (e) {
+          // 🚨 Browser failed → redirect to legacy HTML
+          var loc = window.location;
+          if (!loc.pathname.includes("index.legacy.html")) {
+            loc.href = "/index.legacy.html" + loc.search + loc.hash;
+          }
+        }
+      })();
+    </script>
 
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script>
-          (function() {
-            function supportsModules() {
-              var script = document.createElement('script');
-              return 'noModule' in script;
-            }
-
-            var isModern = supportsModules();
-            fetch('/api/track-version', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                version: isModern ? 'modern' : 'legacy',
-                userAgent: navigator.userAgent
-              })
-            });
-
-            var appPath = isModern ? '/modern/index.html' : '/legacy/index.html';
-            window.location.replace(appPath);
-          })();
-    </script>
-
   </body>
 </html>
