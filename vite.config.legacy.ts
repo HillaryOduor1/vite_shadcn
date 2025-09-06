@@ -104,7 +104,7 @@ import path from "path"
 export default defineConfig({
   build: {
     target: ["es2015"], // keep consistent
-    outDir: "dist-legacy",
+    outDir: "dist/legacy",
     manifest: true, // so loader can map hashed names
     rollupOptions: {
       input: "index.html",
