@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/legacy/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite Shadcn React Test</title>
+
+    <script type="module" crossorigin src="/legacy/assets/index-Oo1w_4cX.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+          (function() {
+            function supportsModules() {
+              var script = document.createElement('script');
+              return 'noModule' in script;
+            }
+
+            var isModern = supportsModules();
+            fetch('/api/track-version', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                version: isModern ? 'modern' : 'legacy',
+                userAgent: navigator.userAgent
+              })
+            });
+
+            var appPath = isModern ? '/modern/index.html' : '/legacy/index.html';
+            window.location.replace(appPath);
+          })();
+    </script>
+
+  </body>
+</html>

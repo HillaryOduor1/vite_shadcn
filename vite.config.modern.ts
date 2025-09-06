@@ -13,7 +13,7 @@ export default defineConfig({
     },
   },
 })
-*/
+*
 import { defineConfig } from "vite"
 import tailwindcss from "@tailwindcss/vite"
 import react from "@vitejs/plugin-react"
@@ -44,5 +44,28 @@ export default defineConfig({
   // eslint-disable-next-line no-constant-binary-expression
   base: process.env.VITE_BASE_PATH || "./" || "/vite_shadcn"  // VERY important for Vercel, keeps paths correct
 
+})*/
+
+import { defineConfig } from "vite"
+import react from "@vitejs/plugin-react"
+import tailwindcss from "@tailwindcss/vite"
+import path from "path"
+
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+  build: {
+    outDir: "dist/modern",
+    target: "esnext", // modern ES6+
+    manifest: true, // ✅ generate manifest
+    rollupOptions: {
+      input: "./index.html",
+    },
+  },
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "src"),
+    },
+  },
+  base: "/modern/",
 })
 
