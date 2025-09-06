@@ -1,9 +1,12 @@
 {
-  "buildCommand": "npm run build",
+  "builds": [
+    { "src": "package.json", "use": "@vercel/static-build" }
+  ],
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/modern/(.*)", "destination": "/modern/$1" },
+    { "source": "/modern/(.*)", "destination": "/$1" },
     { "source": "/legacy/(.*)", "destination": "/legacy/$1" },
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
+    { "source": "/", "destination": "/index.html" }
+  ],
+  "cleanUrls": true
 }
